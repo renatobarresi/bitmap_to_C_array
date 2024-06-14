@@ -1,0 +1,1 @@
+This is a program that converts a bmp image to a C array
