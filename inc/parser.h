@@ -1,3 +1,13 @@
+/**
+ * @file parser.h
+ * @author Renato Barresi (renatobarresi@gmail.com)
+ * @brief 
+ * @version 0.1
+ * @date 2024-06-17
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 #pragma once
 
 #include <iostream>
@@ -10,35 +20,20 @@ class parser
 {
     public:
 
-        std::string fileData;
+        std::string fileBSData;
 
         /**
          * @brief Construct a new parser object
          * 
          * @param inputFile 
          */
-        parser(const std::string inputFile);
+        parser(const std::string& inputFile);
         
         /**
          * @brief 
          * 
          */
         void printFileData();
-
-        /**
-         * @brief Get the number of rows in the file
-         * 
-         * @return int 
-         */
-        int getRows();
-
-        /**
-         * @brief Get the number of columns in the file
-         * 
-         * @return int 
-         */
-        int getColumns();
-
 
     private:
 

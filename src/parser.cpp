@@ -13,7 +13,14 @@
 #include <string>
 #include <fstream>
 
-parser::parser(std::string inputFile)
+/**
+ * @brief Construct a new parser::parser object
+ * 
+ * @param inputFile 
+ * 
+ * \todo Add error handling 
+ */
+parser::parser(const std::string& inputFile)
 {
     std::string text;
 
@@ -21,9 +28,10 @@ parser::parser(std::string inputFile)
 
     std::ifstream file(inputFile);
 
+    // TODO: implement error handling
     while (getline(file, text))
     {
-        this->fileData.append(text);
+        this->fileBSData.append(text);
     }
 
     file.close();
@@ -31,16 +39,5 @@ parser::parser(std::string inputFile)
 
 void parser::printFileData()
 {
-    std::cout << this->fileData << "\n";
+    std::cout << "File's data: " << this->fileBSData << "\n";
 }
-
-int parser::getRows()
-{
-    return 0;
-}
-
-int parser::getColumns()
-{
-    return 0;
-}
-
