@@ -10,7 +10,7 @@ When developing LCD drivers for embedded systems, sometimes there's a need to ha
 
 Create a .txt file (like the image bellow), fill it with 1 and 0's representing your graphic and save it. Then execute the program with the path to your file and an option for the type of the array
 
-![file image][./filePicture.png]
+![file image](filePicture.png)
 
 ### Installing
 
