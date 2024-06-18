@@ -1,13 +1,18 @@
 /**
  * @file main.h
  * @author Renato Barresi (renatobarresi@gmail.com)
- * @brief 
- * @version 0.1
- * @date 2024-06-17
  * 
- * @copyright Copyright (c) 2024
+ * @attention 
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
  * 
  */
 #pragma once
+
+// Includes
+
+
+
+// Function prototypes
 
 int main(int argc, char *argv[]);

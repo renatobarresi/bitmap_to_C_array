@@ -1,42 +1,43 @@
 /**
  * @file parser.h
  * @author Renato Barresi (renatobarresi@gmail.com)
- * @brief 
- * @version 0.1
- * @date 2024-06-17
+ * @brief Header file of the parser component
  * 
- * @copyright Copyright (c) 2024
+ * @attention 
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
  * 
  */
 #pragma once
 
+// Includes 
+
 #include <iostream>
 
+// Class definition
+
 /**
- * @brief 
- * 
+ * @brief This class is in charge of reading the file containing the bitmap 
+ * and convert the data to a bitstream
  */
 class parser
 {
     public:
 
-        std::string fileBSData;
+        std::string fileBSData;     //! Used to store the bitstream
 
         /**
-         * @brief Construct a new parser object
-         * 
-         * @param inputFile 
+         * @brief Class constructor
          */
         parser(const std::string& inputFile);
         
         /**
-         * @brief 
-         * 
+         * @brief Method to print the bitstream
          */
-        void printFileData();
+        void printBitStream();
 
     private:
 
-        std::string fileInputPath;
+        std::string fileInputPath;  //! Path to the file
         
 };

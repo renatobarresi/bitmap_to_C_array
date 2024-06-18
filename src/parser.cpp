@@ -3,41 +3,56 @@
  * @author Renato Barresi (renatobarresi@gmail.com)
  * @brief Contains the class "parser" which takes a .txt file as input and 
  makes it a bitsream
- * @version 0.1
- * @date 2024-06-13
  * 
- * @copyright Copyright (c) 2024
+ * @attention 
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
  * 
  */
+
+// Includes
+
 #include "parser.h"
-#include <string>
+#include <iostream>
 #include <fstream>
+#include <sstream>
+#include <stdexcept>
 
 /**
  * @brief Construct a new parser::parser object
  * 
- * @param inputFile 
+ * @param inputFile file path plus name e.g ./folder/file.txt
  * 
- * \todo Add error handling 
  */
-parser::parser(const std::string& inputFile)
-{
+parser::parser(const std::string& inputFile) {
     std::string text;
 
     this->fileInputPath = inputFile;
 
     std::ifstream file(inputFile);
 
-    // TODO: implement error handling
-    while (getline(file, text))
-    {
+    // Check if the file opened successfully
+    if (!file.is_open()) {
+        throw std::runtime_error("Failed to open file: " + inputFile);
+    }
+
+    // Read the file line by line
+    while (getline(file, text)) {
         this->fileBSData.append(text);
+    }
+
+    // Check for any errors during reading
+    if (file.bad()) {
+        throw std::runtime_error("Error while reading file: " + inputFile);
     }
 
     file.close();
 }
 
-void parser::printFileData()
+/**
+ * @brief Print via cout the bitstream
+ */
+void parser::printBitStream()
 {
-    std::cout << "File's data: " << this->fileBSData << "\n";
+    std::cout << "File's bitstream: " << this->fileBSData << "\n";
 }

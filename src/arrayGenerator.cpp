@@ -2,25 +2,21 @@
  * @file arrayGenerator.cpp
  * @author Renato Barresi (renatobarresi@gmail.com)
  * @brief 
- * @version 0.1
- * @date 2024-06-17
  * 
- * @copyright Copyright (c) 2024
+ * @attention 
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
  * 
  */
 #include "arrayGenerator.h"
 #include <vector>
 #include <iostream>
 
-static std::vector<int> *getStringVector(const std::string& str, int sizeToCut, int numOfElements);
-
 /**
- * @brief 
- * 
- * @param fileBitStream 
- * @param val
- * 
- * \todo Specify which type of base should the array be generated  
+ * @brief Method to generate the required array
+ * It gets a bitstream as input, converts it to a vector of ints, adds the relevant C information as a string and returns it 
+ * @param fileBitStream The file's bitstream
+ * @param std::string
  */
 std::string arrayGenerator::generateArray(const std::string& fileBitStream, sizeOfArray val)
 {
@@ -81,12 +77,21 @@ std::string arrayGenerator::generateArray(const std::string& fileBitStream, size
     return cArrayString;
 }
 
-static std::vector<int> *getStringVector(const std::string& str, int sizeToCut, int numOfElements)
+/**
+ * @brief This method cuts a string representing a bitstream into parts of equal size, and then  
+ * converts the strings to integers and stores them in a vector
+ * @param str The bitstream to cut
+ * @param sizeToCut The size to cut 
+ * @param numOfElements The number of elements that will result from dividing the bitstream by size to cut
+ * @return std::vector<int>* 
+ *
+ * \todo handle size bigger than int
+ */
+std::vector<int> *arrayGenerator::getStringVector(const std::string& str, int sizeToCut, int numOfElements)
 {
     auto *vecIntegers = new std::vector<int>;    // Store the integers here
     int intialPos = 0;
 
-    //std::cout << "\n";
     for (int i = 0; i < numOfElements; i++)
     {
         // Don't go over the string boundary
