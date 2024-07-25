@@ -24,43 +24,44 @@
  */
 int main(int argc, char *argv[])
 {   
+    // Check correct number of inputs
     if (argc < 3)
     {
-        std::cout << "Usage: " << argv[0] << " <path> <sizeOfArray>\n";
+        std::cout << "Usage: " << argv[0] << " <path> <typeOfArray>\n";
         return 1;
     }
 
     std::string path = std::string(argv[1]);
 
-    int sizeOfArray = int(*argv[2] - '0');
+    int typeOfArray = int(*argv[2] - '0');
 
-    // Validate the array option
-    if (sizeOfArray > 5 || sizeOfArray <= 0)
+    // Validate the array types
+    if (typeOfArray > 5 || typeOfArray <= 0)
     {
-        std::cout << "Options for array size is 1\n";
+        std::cout << "Options for array type are 1, 2, 3 and 4. Where 1 represents uint8, 2 uint16 and so on\n";
         return 1;
     }
 
-    arrayGenerator::sizeOfArray val;
-
+    // TODO
     // Add validation to the input parameters
 
     // Convert file contents to a bitstream
-    arrayGenerator myArray;     // This object is used to generate the C array based on a bitstream
     parser myParser(path);      // This object is used to parse the contents of the file and convert it to a bitstream
-
-    //myParser.printFileData();
-
+    
     // Convert bitstream to the specified C array
-    switch (sizeOfArray)
+    arrayGenerator myArray;     // This object is used to generate the C array based on a bitstream
+    arrayGenerator::sizeOfArray val;
+
+    switch (typeOfArray)
     {
+        
         case 1:
         {
             val = arrayGenerator::sizeOfArray::uint8;
         }
         break;
         // TODO
-        /*case 2:
+        case 2:
         {
             val = arrayGenerator::sizeOfArray::uint16;
         }
@@ -74,15 +75,15 @@ int main(int argc, char *argv[])
         {
             val = arrayGenerator::sizeOfArray::uint64;
         }
-        break;*/
+        break;
         default:
         {
-            std::cout << "Invalid option\n";
+            std::cout << "Invalid size option\n";
             return 0;
         }
     }
 
-    std::string C_array = myArray.generateArray(myParser.fileBSData, val);
+    std::string C_array = myArray.generateArray(myParser.bitStreamData, val);
 
     std::cout << "the C array: " << C_array << "\n";
 

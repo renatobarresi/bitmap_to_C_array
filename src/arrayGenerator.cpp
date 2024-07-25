@@ -15,44 +15,19 @@
 /**
  * @brief Method to generate the required array
  * It gets a bitstream as input, converts it to a vector of ints, adds the relevant C information as a string and returns it 
- * @param fileBitStream The file's bitstream
- * @param std::string
+ * @param bitStream The file's bitstream
+ * @param sizeOfArray the C array type e.g uint8, uint16 ...
+ * @retsizeOfArray a string with the C style array
  */
-std::string arrayGenerator::generateArray(const std::string& fileBitStream, sizeOfArray val)
+std::string arrayGenerator::generateArray(const std::string& bitStream, sizeOfArray typeOfArray)
 {
-    std::vector<int> *subStrings;    // Store the strings here
-    std::string cArrayString;
-    std::string tempString;
-    int strSize = fileBitStream.size();
-    int numOfElements;
+    std::vector<int> *subStrings;       // Store the strings here
+    std::string cArrayString;           // We store the C style array here
+    std::string tempString;             // Used as a temp variable to store the processed bitstream, this is concatenated to ccArrayString
+    int strLen = bitStream.size();      // lenght of the bitstream
+    int numOfElements = strLen/(int)typeOfArray; 
 
-    switch (val)
-    {
-        case sizeOfArray::uint8:
-        {   
-            numOfElements = strSize/8; 
-            subStrings = getStringVector(fileBitStream, 8, numOfElements);
-        }
-        break;
-        case sizeOfArray::uint16:
-        {
-            numOfElements = strSize/16;
-            subStrings = getStringVector(fileBitStream, 16, numOfElements);
-        }
-        break;
-        case sizeOfArray::uint32:
-        {
-            numOfElements = strSize/32;
-            subStrings = getStringVector(fileBitStream, 32, numOfElements);
-        }
-        break;
-        case sizeOfArray::uint64:
-        {
-            numOfElements = strSize/64;
-            subStrings = getStringVector(fileBitStream, 64, numOfElements);
-        }
-        break;
-    }
+    subStrings = getStringVector(bitStream, (int)typeOfArray, numOfElements);
 
     cArrayString = "[" + std::to_string(numOfElements) + "] = {";
     
@@ -88,9 +63,9 @@ std::string arrayGenerator::generateArray(const std::string& fileBitStream, size
  * \todo handle size bigger than int
  */
 std::vector<int> *arrayGenerator::getStringVector(const std::string& str, int sizeToCut, int numOfElements)
-{
-    auto *vecIntegers = new std::vector<int>;    // Store the integers here
-    int intialPos = 0;
+{   
+    auto *vecIntegers = new std::vector<int>;   // Store the integers here
+    int intialPos = 0;                          // The initial position in str                                      
 
     for (int i = 0; i < numOfElements; i++)
     {

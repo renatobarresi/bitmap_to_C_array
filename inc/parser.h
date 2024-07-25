@@ -24,7 +24,7 @@ class parser
 {
     public:
 
-        std::string fileBSData;     //! Used to store the bitstream
+        std::string bitStreamData;     //! Used to store the bitstream
 
         /**
          * @brief Class constructor

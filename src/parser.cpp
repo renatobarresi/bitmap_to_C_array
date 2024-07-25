@@ -38,7 +38,7 @@ parser::parser(const std::string& inputFile) {
 
     // Read the file line by line
     while (getline(file, text)) {
-        this->fileBSData.append(text);
+        this->bitStreamData.append(text);
     }
 
     // Check for any errors during reading
@@ -54,5 +54,5 @@ parser::parser(const std::string& inputFile) {
  */
 void parser::printBitStream()
 {
-    std::cout << "File's bitstream: " << this->fileBSData << "\n";
+    std::cout << "File's bitstream: " << this->bitStreamData << "\n";
 }

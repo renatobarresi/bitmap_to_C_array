@@ -29,10 +29,10 @@ class arrayGenerator
          */
         enum class sizeOfArray
         {
-            uint8 = 1,
-            uint16,
-            uint32,
-            uint64
+            uint8 = 8,
+            uint16 = 16,
+            uint32 = 32,
+            uint64 = 64
         };
 
         /**
