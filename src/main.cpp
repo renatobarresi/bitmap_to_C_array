@@ -15,7 +15,6 @@
 #include "arrayGenerator.h"
 #include <string>
 #include <sys/stat.h>
-#include <cstdlib>
 
 /**
  * @brief App runs here
@@ -60,7 +59,6 @@ int main(int argc, char *argv[])
             val = arrayGenerator::sizeOfArray::uint8;
         }
         break;
-        // TODO
         case 2:
         {
             val = arrayGenerator::sizeOfArray::uint16;
@@ -79,13 +77,15 @@ int main(int argc, char *argv[])
         default:
         {
             std::cout << "Invalid size option\n";
-            return 0;
+            return 1;
         }
     }
 
+    // Get the string represeting a C array
     std::string C_array = myArray.generateArray(myParser.bitStreamData, val);
 
-    std::cout << "the C array: " << C_array << "\n";
+    // Print the C array
+    std::cout << C_array << "\n";
 
     return 0;
 }
