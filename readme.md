@@ -23,9 +23,9 @@ The options for the type of the array are:
 ./bitmapToCArray <file_path> <array_type>
 ./bitmapToCArray ../figures/face.txt 1
 
-#### Output
+### Output
 
-![file image][output.png]
+![file image](output.png)
 
 ## Version History
 
