@@ -25,7 +25,7 @@ The options for the type of the array are:
 
 #### Output
 
-![file_image][output.png]
+![file image][output.png]
 
 ## Version History
 
