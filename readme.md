@@ -1,8 +1,6 @@
 # Description
 
-This is a -hopefully- non bloated bitmap to C array. Takes a .txt file with a bitmap as an input and prints a C array based on the bitmap.
-The way the bitmap is parsed is from left to right, starting from the upper left corner.
-When developing LCD drivers for embedded systems, sometimes there's a need to have pre-defined graphics inside ROM. A way of storing these graphics, would be as an array.   
+A lightweight utility that converts a bitmap represented in a .txt file into a C array. The bitmap is parsed from left to right, starting at the upper-left corner. This tool is particularly useful for embedded systems development, where predefined graphics need to be stored in ROM as arrays.
 
 ## Getting Started
 
@@ -20,8 +18,9 @@ The options for the type of the array are:
 * C++ 11
 * CMake
 
-### Executing program
+### Run the program
 
+./bitmapToCArray <file_path> <array_type>
 ./bitmapToCArray ../figures/face.txt 1
 
 ## Version History
