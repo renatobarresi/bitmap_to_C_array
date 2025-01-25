@@ -23,6 +23,10 @@ The options for the type of the array are:
 ./bitmapToCArray <file_path> <array_type>
 ./bitmapToCArray ../figures/face.txt 1
 
+#### Output
+
+![file_image][output.png]
+
 ## Version History
 
 * 1.0
