@@ -20,8 +20,8 @@ The options for the type of the array are:
 
 ### Run the program
 
-./bitmapToCArray <file_path> <array_type>
-./bitmapToCArray ../figures/face.txt 1
+Format: ./bitmapToCArray <file_path> <array_type>, 
+Example: ./bitmapToCArray ../figures/face.txt 1
 
 ### Output
 
