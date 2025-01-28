@@ -1,6 +1,6 @@
 # Description
 
-A lightweight utility that converts a bitmap represented in a .txt file into a C array. The bitmap is parsed from left to right, starting at the upper-left corner. This tool is particularly useful for embedded systems development, where predefined graphics need to be stored in ROM as arrays.
+A lightweight utility that converts a bitmap represented in a .txt file into a C array. The bitmap is parsed from left to right, starting at the upper-left corner. This tool is particularly useful for embedded systems development, where predefined graphics need to be stored in non-volatile memory as arrays.
 
 ## Getting Started
 
